@@ -1,10 +1,10 @@
 UnHideDrives
 ------------
-
+![snap01](https://raw.githubusercontent.com/vhanla/UnHideDrives/master/.gitassets/snap01.png)
 
 This simple tool for Windows will help you to hide drives (letters) 
 
-### How does it work?
+## How does it work?
 
 UnHideDrives basically works by editing a Windows registry entry at:
 `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer`
@@ -27,3 +27,11 @@ to be restarted.
 
 **Limitations:** Even though this registry belongs to the current user, it won't be modified from third party
 tools as long as it is not evelated, so that's why the tool requires admin privileges.
+
+## How to use:
+Just launch the tool (is portable, a.k.a. no need to install), and pick those drive letters
+you don't like to be (easily) visible in Explorer (Win+E), then **Save Changes** and finally
+ **Restart Windows Explorer**. If you want to restore the already opened paths opened
+in the File Explorer, keep the checked the `Restore current opened Explorer windows`, otherwise
+uncheck it, and Windows File Explorer will restart without reopening those paths.
+
