@@ -8,7 +8,7 @@ uses
 
 type
   TForm1 = class(TForm)
-    Button1: TButton;
+    btnSaveChanges: TButton;
     GroupBox1: TGroupBox;
     CheckBox1: TCheckBox;
     CheckBox2: TCheckBox;
@@ -39,7 +39,7 @@ type
     Button2: TButton;
     Label1: TLabel;
     Timer1: TTimer;
-    procedure Button1Click(Sender: TObject);
+    procedure btnSaveChangesClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure Button2Click(Sender: TObject);
@@ -102,18 +102,16 @@ var
 drives:dword;
 reg: TRegistry;
 begin
+  drives := 0;
   reg := TRegistry.Create;
   try
     reg.RootKey:= HKEY_CURRENT_USER;
-    if not reg.OpenKey('Software\Microsoft\Windows\CurrentVersion\Policies\Explorer',true) then
-       begin
-
-       end;
-    try
+    reg.OpenKeyReadOnly('Software\Microsoft\Windows\CurrentVersion\Policies\Explorer');
+    if reg.ValueExists('NoDrives') then
+    begin
       drives:=reg.ReadInteger('NoDrives');
-    finally
-
     end;
+    // there's no need to show info about NoDrives existence
 
     CheckBox1.Checked:= (drives and 1)=1;
     CheckBox2.Checked:= (drives and 2)=2;
@@ -163,7 +161,7 @@ begin
 
 end;
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TForm1.btnSaveChangesClick(Sender: TObject);
 var
 drives: dword;
 reg: tregistry;
@@ -200,14 +198,15 @@ begin
   reg := TRegistry.Create;
   try
     reg.RootKey:= HKEY_CURRENT_USER;
-    if not reg.OpenKey('Software\Microsoft\Windows\CurrentVersion\Policies\Explorer',true) then
-       begin
-
-       end;
+    reg.OpenKey('Software\Microsoft\Windows\CurrentVersion\Policies\Explorer',true);
     try
       reg.WriteInteger('NoDrives',drives);
-    finally
-
+    except
+      raise Exception.Create('Couldn''nt create NoDrives value.');
+    end;
+    if reg.ValueExists('NoDrives') then
+    begin
+      MessageDlg('Changes successfully applied, please restart Windows File Explorer', mtInformation,[mbOK], 0);
     end;
 
   finally

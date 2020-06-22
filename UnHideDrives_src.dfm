@@ -23,7 +23,7 @@ object Form1: TForm1
     Height = 13
     Caption = '- by vhanla -'
   end
-  object Button1: TButton
+  object btnSaveChanges: TButton
     Left = 8
     Top = 77
     Width = 209
@@ -31,7 +31,7 @@ object Form1: TForm1
     Caption = 'Save Status'
     ElevationRequired = True
     TabOrder = 0
-    OnClick = Button1Click
+    OnClick = btnSaveChangesClick
   end
   object GroupBox1: TGroupBox
     Left = 8
