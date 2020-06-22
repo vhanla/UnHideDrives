@@ -35,3 +35,6 @@ you don't like to be (easily) visible in Explorer (Win+E), then **Save Changes**
 in the File Explorer, keep the checked the `Restore current opened Explorer windows`, otherwise
 uncheck it, and Windows File Explorer will restart without reopening those paths.
 
+## Download:
+
+Get it from [releases page](https://github.com/vhanla/UnHideDrives/releases).
