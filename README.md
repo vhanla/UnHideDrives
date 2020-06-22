@@ -32,7 +32,7 @@ tools as long as it is not evelated, so that's why the tool requires admin privi
 Just launch the tool (is portable, a.k.a. no need to install), and pick those drive letters
 you don't like to be (easily) visible in Explorer (Win+E), then **Save Changes** and finally
  **Restart Windows Explorer**. If you want to restore the already opened paths opened
-in the File Explorer, keep the checked the `Restore current opened Explorer windows`, otherwise
+in the File Explorer, keep checked the `Restore current opened Explorer windows`, otherwise
 uncheck it, and Windows File Explorer will restart without reopening those paths.
 
 ## Download:
