@@ -4,7 +4,7 @@ object Form1: TForm1
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Un/Hide Your Drives'
-  ClientHeight = 132
+  ClientHeight = 272
   ClientWidth = 445
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -16,19 +16,12 @@ object Form1: TForm1
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object Label1: TLabel
-    Left = 376
-    Top = 108
-    Width = 61
-    Height = 13
-    Caption = '- by vhanla -'
-  end
   object btnSaveChanges: TButton
-    Left = 8
+    Left = 258
     Top = 77
-    Width = 209
+    Width = 181
     Height = 25
-    Caption = 'Save Status'
+    Caption = 'Save Changes'
     ElevationRequired = True
     TabOrder = 0
     OnClick = btnSaveChangesClick
@@ -275,19 +268,63 @@ object Form1: TForm1
       TabOrder = 25
     end
   end
-  object Button2: TButton
-    Left = 223
-    Top = 77
-    Width = 216
+  object btnRestartExplorer: TButton
+    Left = 258
+    Top = 108
+    Width = 181
     Height = 25
     Caption = 'Restart Windows Explorer'
-    ElevationRequired = True
     TabOrder = 2
-    OnClick = Button2Click
+    OnClick = btnRestartExplorerClick
   end
-  object Timer1: TTimer
-    OnTimer = Timer1Timer
-    Left = 128
-    Top = 104
+  object ListBox1: TListBox
+    Left = 8
+    Top = 139
+    Width = 429
+    Height = 104
+    ItemHeight = 13
+    TabOrder = 3
+  end
+  object chkRestoreExplorerInstances: TCheckBox
+    Left = 8
+    Top = 112
+    Width = 221
+    Height = 17
+    Caption = 'Restore current opened Explorer windows too'
+    Checked = True
+    State = cbChecked
+    TabOrder = 4
+  end
+  object LinkLabel1: TLinkLabel
+    Left = 164
+    Top = 248
+    Width = 273
+    Height = 17
+    Cursor = crHandPoint
+    Caption = 
+      'Author: vhanla <a href="https://github.com/vhanla/UnHideDrives">' +
+      'https://github.com/vhanla/UnHideDrives</a>'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clHighlight
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 5
+    OnLinkClick = LinkLabel1LinkClick
+  end
+  object chkToggleDrives: TCheckBox
+    Left = 8
+    Top = 81
+    Width = 121
+    Height = 17
+    Caption = 'Un/Check all drives'
+    TabOrder = 6
+    OnClick = chkToggleDrivesClick
+  end
+  object tmrExplorerRestorer: TTimer
+    OnTimer = tmrExplorerRestorerTimer
+    Left = 224
+    Top = 56
   end
 end
